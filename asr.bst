@@ -381,8 +381,8 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { s nameptr
       duplicate$ #1 >
-       { "{ff~}{vv~}{ll}{, jj}" }
-       { "{vv~}{ll}{, jj}{, ff}" }
+        { "{ff~}{vv~}{ll}{, jj}" }
+        { "{vv~}{ll}{, jj}{, ff}" }
       if$
       format.name$
       bibinfo bibinfo.check
@@ -1331,7 +1331,7 @@ FUNCTION {sort.format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-     "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}"
+      "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}"
       format.name$ 't :=
       nameptr #1 >
         {
@@ -1511,13 +1511,9 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\urlprefix}{URL }"
   write$ newline$
-  "\expandafter\ifx\csname urlstyle\endcsname\relax"
+  "  \providecommand{\doi}[1]{doi:\discretionary{}{}{}\href{https://dx.doi.org/#1}{#1}}"
   write$ newline$
-  "  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else"
-  write$ newline$
-  "  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi"
-  write$ newline$
-  "\providecommand{\eprint}[2][]{\url{#2}}"
+  "\providecommand{\eprint}[2][]{\href{https://arxiv.org/abs/#2}{arXiv:#2}}"
   write$ newline$
 }
 EXECUTE {begin.bib}
