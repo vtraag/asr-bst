@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,cay,ed-au,nm-rev1,dt-beg,yr-per,tit-qq,atit-u,vnum-x,num-xser,jnm-x,doi,edby,pp,ed,xedn,eprint,url,url-blk,nfss,')
+%% merlin.mbs  (with options: `ay,cay,ed-au,nm-revv1,dt-beg,yr-per,tit-qq,atit-u,vnum-x,num-xser,jnm-x,doi,edby,pp,ed,xedn,eprint,url,url-blk,nfss,')
 %% ----------------------------------------
 %% *** ASR ***
 %% 
@@ -381,8 +381,8 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { s nameptr
       duplicate$ #1 >
-        { "{f.~}{vv~}{ll}{, jj}" }
-        { "{vv~}{ll}{, jj}{, f.}" }
+       { "{ff~}{vv~}{ll}{, jj}" }
+       { "{vv~}{ll}{, jj}{, ff}" }
       if$
       format.name$
       bibinfo bibinfo.check
@@ -1331,7 +1331,7 @@ FUNCTION {sort.format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{vv{ } }{ll{ }}{  f{ }}{  jj{ }}"
+     "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}"
       format.name$ 't :=
       nameptr #1 >
         {

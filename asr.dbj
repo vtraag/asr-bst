@@ -101,8 +101,8 @@ cay,%: Chicago
 % nm-rvx,%: Surname + pure initials
 % nm-rvcx,%: Surname + comma + pure initials
 % nm-rvv,%: Surname + spaceless initials
-nm-rev1,%: Only first name reversed, initials
-% nm-revv1,%: First name reversed, with full names
+% nm-rev1,%: Only first name reversed, initials
+nm-revv1,%: First name reversed, with full names
 %--------------------
 %EDITOR NAMES IN COLLECTIONS (if author names reversed)
 % ed-rev,%: Editor names reversed
