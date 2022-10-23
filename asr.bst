@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,cay,ed-au,nm-rev1,dt-beg,yr-per,tit-qq,atit-u,vnum-x,num-xser,jnm-x,isbn,issn,doi,edby,pp,ed,xedn,eprint,url,url-blk,nfss,')
+%% merlin.mbs  (with options: `ay,cay,ed-au,nm-rev1,dt-beg,yr-per,tit-qq,atit-u,vnum-x,num-xser,jnm-x,doi,edby,pp,ed,xedn,eprint,url,url-blk,nfss,')
 %% ----------------------------------------
 %% *** ASR ***
 %% 
@@ -46,8 +46,6 @@ ENTRY
     eprint
     howpublished
     institution
-    isbn
-    issn
     journal
     key
     month
@@ -449,26 +447,6 @@ FUNCTION {format.editors}
     }
   if$
 }
-FUNCTION {format.isbn}
-{ isbn "isbn" bibinfo.check
-  duplicate$ empty$ 'skip$
-    {
-      new.block
-      "ISBN " swap$ *
-    }
-  if$
-}
-
-FUNCTION {format.issn}
-{ issn "issn" bibinfo.check
-  duplicate$ empty$ 'skip$
-    {
-      new.block
-      "ISSN " swap$ *
-    }
-  if$
-}
-
 FUNCTION {format.doi}
 { doi empty$
     { "" }
@@ -929,7 +907,6 @@ FUNCTION {article}
       format.pages output
     }
   if$
-  format.issn output
   format.doi output
   new.block
   format.url output
@@ -967,7 +944,6 @@ FUNCTION {book}
     }
   if$
   format.edition output
-  format.isbn output
   format.doi output
   new.block
   format.url output
@@ -986,7 +962,6 @@ FUNCTION {booklet}
   new.block
   howpublished "howpublished" bibinfo.check output
   address "address" bibinfo.check output
-  format.isbn output
   format.doi output
   new.block
   format.url output
@@ -1028,10 +1003,6 @@ FUNCTION {inbook}
     }
   if$
   format.edition output
-  crossref missing$
-    { format.isbn output }
-    'skip$
-  if$
   format.doi output
   new.block
   format.url output
@@ -1057,7 +1028,6 @@ FUNCTION {incollection}
       new.sentence
       format.publisher.address output
       format.edition output
-      format.isbn output
     }
     { format.incoll.inproc.crossref output.nonnull
       format.chapter.pages output
@@ -1091,8 +1061,6 @@ FUNCTION {inproceedings}
           format.publisher.address output
         }
       if$
-      format.isbn output
-      format.issn output
     }
     { format.incoll.inproc.crossref output.nonnull
       format.pages output
@@ -1202,8 +1170,6 @@ FUNCTION {proceedings}
       format.publisher.address output
     }
   if$
-  format.isbn output
-  format.issn output
   format.doi output
   new.block
   format.url output

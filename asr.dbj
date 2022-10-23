@@ -397,12 +397,12 @@ jnm-x,%: Space after journal
 % pre-edn,%: Publisher after edition
 %--------------------
 %ISBN NUMBER:
-  isbn,%: Include ISBN
-%   %: (def) No ISBN
+%  isbn,%: Include ISBN
+    %: (def) No ISBN
 %--------------------
 %ISSN NUMBER:
-  issn,%: Include ISSN
-%   %: (def) No ISSN
+%  issn,%: Include ISSN
+    %: (def) No ISSN
 %--------------------
 %DOI NUMBER:
   doi,%: Include DOI
