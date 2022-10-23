@@ -381,7 +381,7 @@ jnm-x,%: Space after journal
 %--------------------
 %PUBLISHER ADDRESS:
     %: (def) Publisher, address
-% add-pub,%: Address: Publisher
+add-pub,%: Address: Publisher
 %--------------------
 %PUBLISHER IN PARENTHESES:
     %: (def) Publisher as normal block

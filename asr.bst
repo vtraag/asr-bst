@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,cay,ed-au,nm-revv1,dt-beg,yr-per,tit-qq,atit-u,vnum-x,num-xser,jnm-x,doi,edby,pp,ed,xedn,eprint,url,url-blk,nfss,')
+%% merlin.mbs  (with options: `ay,cay,ed-au,nm-revv1,dt-beg,yr-per,tit-qq,atit-u,vnum-x,num-xser,jnm-x,add-pub,doi,edby,pp,ed,xedn,eprint,url,url-blk,nfss,')
 %% ----------------------------------------
 %% *** ASR ***
 %% 
@@ -865,14 +865,14 @@ FUNCTION {format.org.or.pub}
   address empty$ t empty$ and
     'skip$
     {
+      address "address" bibinfo.check *
       t empty$
-        { address "address" bibinfo.check *
-        }
-        { t *
-          address empty$
             'skip$
-            { ", " * address "address" bibinfo.check * }
+        { address empty$
+            'skip$
+            { ": " * }
           if$
+          t *
         }
       if$
     }
